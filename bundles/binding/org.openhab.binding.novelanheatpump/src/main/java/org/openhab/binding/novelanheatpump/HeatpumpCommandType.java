@@ -83,6 +83,20 @@ public enum HeatpumpCommandType {
         }
     },
 
+    TYPE_HEATPUMP_NUMSTATE {
+        {
+            command = "num_state";
+            itemClass = NumberItem.class;
+        }
+    },
+
+    TYPE_HEATPUMP_ERROR_CODE {
+        {
+            command = "error_code";
+            itemClass = NumberItem.class;
+        }
+    },
+
     TYPE_HEATPUMP_EXTENDED_STATE {
         {
             command = "extended_state";

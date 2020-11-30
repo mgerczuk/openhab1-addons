@@ -209,6 +209,8 @@ public class HeatPumpBinding extends AbstractActiveBinding<HeatPumpBindingProvid
             String heatpumpExtendedState = getExtendeStateString(heatpumpValues) + ": " //$NON-NLS-1$
                     + formatHours(heatpumpValues[120]);
             handleEventType(new StringType(heatpumpExtendedState), HeatpumpCommandType.TYPE_HEATPUMP_EXTENDED_STATE);
+            handleEventType(new DecimalType(heatpumpValues[117]), HeatpumpCommandType.TYPE_HEATPUMP_NUMSTATE);
+            //logger.info("+++ MY STATE {} +++", heatpumpValues[117]);
 
             // read all parameters
             int[] heatpumpParams = connector.getParams();
@@ -386,6 +388,9 @@ public class HeatPumpBinding extends AbstractActiveBinding<HeatPumpBindingProvid
                 break;
             case 2:
                 returnValue = Messages.HeatPumpBinding_APPEAR;
+                break;
+            case 4:
+                returnValue = ((Integer) heatpumpValues[117]).toString();
                 break;
             case 5:
                 returnValue = Messages.HeatPumpBinding_DEFROSTING;
